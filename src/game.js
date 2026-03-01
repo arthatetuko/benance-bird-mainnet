@@ -97,12 +97,13 @@ const supabaseClient = createClient(supabaseUrl, supabaseKey);
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-function resizeCanvas(){
+function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 }
-resizeCanvas();
+
 window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
 
 // ===== LOAD 2 FRAME IMAGES =====
 const birdFrame1 = new Image();
