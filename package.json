@@ -1,0 +1,19 @@
+{
+  "name": "benance-web3",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.3.1"
+  },
+  "dependencies": {
+    "@cosmjs/cosmwasm-stargate": "^0.38.1",
+    "@cosmjs/stargate": "^0.38.1",
+    "@supabase/supabase-js": "^2.97.0"
+  }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Benance Bird</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+
+  <!-- ===== HUD (WALLET + SCORE) ===== -->
+  <div id="hud">
+    <button id="connectBtn">Connect Wallet</button>
+
+    <div id="walletInfo" style="display:none;">
+      <p id="walletStatus"></p>
+      <p>Score: <span id="score">0</span></p>
+      <p>Highscore: <span id="highscore">0</span></p>
+      <button id="disconnectBtn">Disconnect</button>
+    </div>
+  </div>
+
+  <!-- ===== MAIN MENU ===== -->
+  <div id="menuBox">
+    <h2>Benance Bird</h2>
+    <button id="playBtn">Play Game</button>
+    <button id="leaderboardBtn">Leaderboard</button>
+    <button id="treasuryBtn">Treasury Info</button>
+  </div>
+
+  <!-- ===== LEADERBOARD ===== -->
+  <div id="leaderboardBox" style="display:none;"></div>
+
+  <!-- ===== GAME CANVAS ===== -->
+  <canvas id="gameCanvas"></canvas>
+
+  <!-- ===== GAME OVER ACTIONS (CLAIM + BURN) ===== -->
+  <div id="gameOverActions" style="display:none;">
+    <button id="claimBtn">Claim LUNC</button>
+    <button id="burnBtn">🔥 Burn LUNC</button>
+  </div>
+
+  <!-- ===== RESTART TEXT ===== -->
+  <p id="restartText">Tap here to start again</p>
+
+  <!-- ===== TREASURY POPUP ===== -->
+  <div id="treasuryBox" style="display:none;">
+    <h3>Treasury Info</h3>
+
+    <p>💰 Treasury Balance:
+      <span id="treasuryBalance">0</span>
+    </p>
+
+    <p>📤 Total Distribution:
+      <span id="totalDistribution">0</span>
+    </p>
+
+    <p>🔥 Total Burn:
+      <span id="totalBurn">0</span>
+    </p>
+
+    <p>⚡ Available Today:
+      <span id="availableToday">0</span>
+    </p>
+
+    <div id="donateSection">
+      <input id="donateAmount" type="number" placeholder="Amount LUNC" />
+      <button id="donateBtn">Donate</button>
+    </div>
+
+    <button id="refreshTreasury">🔄 Refresh</button>
+    <button onclick="
+      document.getElementById('treasuryBox').style.display='none';
+      document.getElementById('menuBox').style.display='block';
+    ">
+      Close
+    </button>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+
+</body>
+</html>
