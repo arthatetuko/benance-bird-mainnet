@@ -5,7 +5,8 @@ html, body {
   padding: 0;
   height: 100%;
   overflow: hidden;
-  background: black;
+  background: url("/bg.jpg") no-repeat center center fixed;
+  background-size: cover;
 }
 
 /* ===== HUD (Wallet + Score Box) ===== */
