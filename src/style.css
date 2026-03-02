@@ -31,7 +31,7 @@ html, body {
   left: 50%;
   transform: translate(-50%, -50%);
   
-  background: transparent;   /* hilangkan kuning */
+ background: transparent;   /* hilangkan kuning */
   box-shadow: none;          /* hilangkan shadow */
   padding: 0;
   

@@ -1,28 +1,28 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Benance Bird</title>
   <link rel="stylesheet" href="/src/style.css">
-
+  
   <!-- Basic Meta -->
-  <meta name="title" content="Benance Bird - Play & Earn LUNC">
-  <meta name="description" content="Play simple game. Earn and Burn more LUNC">
+<meta name="title" content="Benance Bird - Play & Earn LUNC">
+<meta name="description" content="Play simple game. Earn and Burn more LUNC">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://benance-bird-mainnet.vercel.app/">
-  <meta property="og:title" content="Benance Bird - Play, Earn & Burn LUNC">
-  <meta property="og:description" content="Play simple game. Earn and Burn more LUNC">
-  <meta property="og:image" content="https://benance-bird-mainnet.vercel.app/preview.png">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://benance-bird-mainnet.vercel.app/">
+<meta property="og:title" content="Benance Bird - Play, Earn & Burn LUNC">
+<meta property="og:description" content="Play simple game. Earn and Burn more LUNC">
+<meta property="og:image" content="https://benance-bird-mainnet.vercel.app/preview.png">
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://benance-bird-mainnet.vercel.app/">
-  <meta property="twitter:title" content="Benance Bird - Play, Earn & Burn LUNC">
-  <meta property="twitter:description" content="Play simple game. Earn and Burn more LUNC.">
-  <meta property="twitter:image" content="https://benance-bird-mainnet.vercel.app/preview.png">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://benance-bird-mainnet.vercel.app/">
+<meta property="twitter:title" content="Benance Bird - Play, Earn & Burn LUNC">
+<meta property="twitter:description" content="Play simple game. Earn and Burn more LUNC.">
+<meta property="twitter:image" content="https://benance-bird-mainnet.vercel.app/preview.png">
 </head>
 
 <body>
@@ -39,6 +39,13 @@
     </div>
   </div>
 
+  <!-- ===== MAIN MENU ===== -->
+  <div id="menuBox">
+    <button id="playBtn">Play Game</button>
+    <button id="leaderboardBtn">Leaderboard</button>
+    <button id="treasuryBtn">Treasury Info</button>
+  </div>
+
   <!-- ===== LEADERBOARD ===== -->
   <div id="leaderboardBox" style="display:none;"></div>
 
@@ -50,6 +57,9 @@
     <button id="claimBtn">Claim LUNC</button>
     <button id="burnBtn">🔥 Burn LUNC</button>
   </div>
+
+  <!-- ===== RESTART TEXT ===== -->
+  <p id="restartText">Tap here to start again</p>
 
   <!-- ===== TREASURY POPUP ===== -->
   <div id="treasuryBox" style="display:none;">
@@ -67,7 +77,7 @@
       <span id="totalBurn">0</span>
     </p>
 
-    <p>⚡️ Available Today:
+    <p>⚡ Available Today:
       <span id="availableToday">0</span>
     </p>
 
@@ -79,6 +89,7 @@
     <button id="refreshTreasury">🔄 Refresh</button>
     <button onclick="
       document.getElementById('treasuryBox').style.display='none';
+      document.getElementById('menuBox').style.display='block';
     ">
       Close
     </button>
