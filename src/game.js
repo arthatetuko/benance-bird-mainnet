@@ -97,9 +97,27 @@ const supabaseClient = createClient(supabaseUrl, supabaseKey);
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
+const BASE_RATIO = 9 / 16; // portrait ratio
+
 function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  let width = window.innerWidth;
+  let height = window.innerHeight;
+
+  const currentRatio = width / height;
+
+  if (currentRatio > BASE_RATIO) {
+    // layar terlalu lebar (desktop)
+    width = height * BASE_RATIO;
+  } else {
+    // layar terlalu tinggi (mobile portrait normal)
+    height = width / BASE_RATIO;
+  }
+
+  canvas.width = width;
+  canvas.height = height;
+
+  canvas.style.width = width + "px";
+  canvas.style.height = height + "px";
 }
 
 window.addEventListener("resize", resizeCanvas);
