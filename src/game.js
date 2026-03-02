@@ -136,7 +136,10 @@ pipeImg.src = "/blue_pipe.png";
 
 // ===== LOAD BACKGROUND =====
 const bgImg = new Image();
-bgImg.src = "/background.png";
+bgImg.src = "/japan.png";
+
+let bgX = 0;
+const bgSpeed = 1.5;
 
 let currentFrame=0;
 let frameTimer=0;
@@ -146,6 +149,22 @@ const frameInterval=0.12;
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
 let lastJumpSoundTime = 0;
+
+function drawBackground() {
+  if (!bgImg.complete) return;
+
+  const scale = canvas.height / bgImg.height;
+  const scaledWidth = bgImg.width * scale;
+
+  bgX -= bgSpeed;
+
+  if (bgX <= -scaledWidth) {
+    bgX = 0;
+  }
+
+  ctx.drawImage(bgImg, bgX, 0, scaledWidth, canvas.height);
+  ctx.drawImage(bgImg, bgX + scaledWidth, 0, scaledWidth, canvas.height);
+}
 
 function playJumpSound(){
 
@@ -545,13 +564,8 @@ function gameLoop(timestamp){
 
   if(gameRunning){
 
-    ctx.drawImage(
-  bgImg,
-  0,
-  0,
-  canvas.width,
-  canvas.height
-);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBackground();
 
     if(!gameOver){
 
