@@ -210,6 +210,22 @@ if (treasuryBtn) {
   };
 }
 
+const howToBtn = document.getElementById("howToBtn");
+const howToBox = document.getElementById("howToBox");
+const closeHowTo = document.getElementById("closeHowTo");
+
+if (howToBtn) {
+  howToBtn.onclick = () => {
+    howToBox.style.display = "block";
+  };
+}
+
+if (closeHowTo) {
+  closeHowTo.onclick = () => {
+    howToBox.style.display = "none";
+  };
+}
+
 
   // ===== INIT GAME =====
   initGame(claimReward);

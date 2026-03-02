@@ -456,7 +456,14 @@ canvas.addEventListener("click", function(e){
 
   const centerX = canvas.width / 2;
   const restartY = canvas.height / 2 + 20;
-{
+
+  // Area restart text (lebar 300px, tinggi 40px)
+  if(
+    x > centerX - 150 &&
+    x < centerX + 150 &&
+    y > restartY - 20 &&
+    y < restartY + 20
+  ){
     resetGame();
   }
 });
