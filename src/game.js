@@ -153,8 +153,13 @@ let lastJumpSoundTime = 0;
 function drawBackground() {
   if (!bgImg.complete) return;
 
-  const scale = canvas.height / bgImg.height;
+  const scale = Math.max(
+    canvas.width / bgImg.width,
+    canvas.height / bgImg.height
+  );
+
   const scaledWidth = bgImg.width * scale;
+  const scaledHeight = bgImg.height * scale;
 
   bgX -= bgSpeed;
 
@@ -162,8 +167,8 @@ function drawBackground() {
     bgX = 0;
   }
 
-  ctx.drawImage(bgImg, bgX, 0, scaledWidth, canvas.height);
-  ctx.drawImage(bgImg, bgX + scaledWidth, 0, scaledWidth, canvas.height);
+  ctx.drawImage(bgImg, bgX, 0, scaledWidth, scaledHeight);
+  ctx.drawImage(bgImg, bgX + scaledWidth, 0, scaledWidth, scaledHeight);
 }
 
 function playJumpSound(){
