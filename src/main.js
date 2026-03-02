@@ -83,7 +83,6 @@ if (connectBtn) {
 
     if (!requireWallet()) return;
 
-    document.getElementById("menuBox").style.display = "none";
     window.startGame();
   };
 }

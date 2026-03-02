@@ -30,12 +30,14 @@ html, body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: black;
-  padding: 30px;
-  border-radius: 10px;
-  text-align: center;
-  z-index: 1000;
-  max-width: 90vw;
+  
+  background: transparent;   /* hilangkan kuning */
+  box-shadow: none;          /* hilangkan shadow */
+  padding: 0;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 /* ===== LEADERBOARD ===== */
