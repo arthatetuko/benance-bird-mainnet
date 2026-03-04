@@ -150,6 +150,12 @@ export const skins = [
     id: "ll69",
     name: "ll69",
     frames: ["/juris1.png", "/juris2.png"]
+  },
+
+{
+    id: "Nueng",
+    name: "Nueng",
+    frames: ["/nueng1.png", "/nueng2.png"]
   }
 ];
 
