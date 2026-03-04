@@ -42,25 +42,80 @@ body {
   gap: 12px;
 }
 
-#skinOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.8);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 3000;
+/* ===== SKIN OVERLAY ===== */
+
+#skinOverlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
 }
 
-#skinBox {
-  background: #111;
-  padding: 30px;
-  border-radius: 12px;
-  color: white;
-  text-align: center;
+/* ===== SKIN BOX ===== */
+
+#skinBox{
+  width:320px;
+  max-height:80vh;
+  background:#111;
+  border-radius:12px;
+  display:flex;
+  flex-direction:column;
+  padding:15px;
+}
+
+/* ===== HEADER ===== */
+
+#skinHeader{
+  text-align:center;
+  color:white;
+  margin-bottom:10px;
+  font-size:22px;
+  font-weight:bold;
+}
+
+/* ===== SKIN LIST GRID ===== */
+
+#skinList{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  overflow-y:auto;
+  padding:10px;
+}
+
+/* ===== SKIN CARD ===== */
+
+.skinCard{
+  text-align:center;
+}
+
+.skinCard img{
+  width:80px;
+  image-rendering:pixelated;
+}
+
+.skinCard button{
+  margin-top:6px;
+  width:100%;
+}
+
+/* ===== FOOTER ===== */
+
+#skinFooter{
+  margin-top:10px;
+  text-align:center;
+}
+
+#closeSkinBtn{
+  width:100%;
+  padding:10px;
+  font-size:16px;
 }
 
 /* ===== LEADERBOARD ===== */

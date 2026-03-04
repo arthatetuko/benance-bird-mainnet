@@ -191,6 +191,7 @@ export function renderSkinList() {
   skins.forEach(skin => {
 
     const card = document.createElement("div");
+card.className = "skinCard";
     card.style.margin = "10px";
     card.style.textAlign = "center";
 
