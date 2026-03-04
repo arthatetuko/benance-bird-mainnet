@@ -123,12 +123,103 @@ function resizeCanvas() {
 window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
 
-// ===== LOAD 2 FRAME IMAGES =====
-const birdFrame1 = new Image();
-birdFrame1.src = "/terra1.png";
+// =====================
+// SKIN CONFIG
+// =====================
 
-const birdFrame2 = new Image();
-birdFrame2.src = "/terra2.png";
+export const skins = [
+  {
+    id: "terra",
+    name: "terra",
+    frames: ["/terra1.png", "/terra2.png"]
+  },
+
+{
+    id: "do",
+    name: "do",
+    frames: ["/do1.png", "/do2.png"]
+  },
+
+  {
+    id: "grdx",
+    name: "grdx",
+    frames: ["/grdx1.png", "/grdx2.png"]
+  },
+  
+  {
+    id: "juris",
+    name: "juris",
+    frames: ["/juris1.png", "/juris2.png"]
+  }
+];
+
+// Selected skin
+let selectedSkin = localStorage.getItem("selectedSkin");
+
+if (!selectedSkin) {
+  selectedSkin = "terra";
+  localStorage.setItem("selectedSkin", "terra");
+}
+
+// Preload skin images
+const skinImages = {};
+
+skins.forEach(skin => {
+  skinImages[skin.id] = skin.frames.map(src => {
+    const img = new Image();
+    img.src = src;
+    return img;
+  });
+});
+
+export function setSkin(id) {
+  selectedSkin = id;
+  localStorage.setItem("selectedSkin", id);
+
+  console.log("Selected skin:", selectedSkin);
+}
+
+export function renderSkinList() {
+
+  const container = document.getElementById("skinList");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  console.log("Selected skin:", selectedSkin);
+
+  skins.forEach(skin => {
+
+    const card = document.createElement("div");
+    card.style.margin = "10px";
+    card.style.textAlign = "center";
+
+    const preview = document.createElement("img");
+    preview.src = skin.frames[0];
+    preview.style.width = "80px";
+    preview.style.height = "80px";
+    preview.style.imageRendering = "pixelated";
+
+    const btn = document.createElement("button");
+
+    btn.innerText = (skin.id === selectedSkin) ? "Selected" : "Select";
+
+    btn.style.display = "block";
+    btn.style.marginTop = "5px";
+
+    btn.onclick = () => {
+      setSkin(skin.id);
+      renderSkinList();
+    };
+
+    card.appendChild(preview);
+    card.appendChild(btn);
+
+    container.appendChild(card);
+
+  });
+
+}
 
 // ===== LOAD PIPE IMAGE =====
 const pipeImg = new Image();
@@ -252,6 +343,7 @@ let flapTimer = 0;
 const flapDuration = 0.25; // durasi animasi flap (detik)
 
 let birdY=200;
+const birdX = 100; // posisi horizontal tetap
 let velocity=0;
 let gravity=1200;
 let jumpForce=-450;
@@ -687,8 +779,15 @@ else{
   currentFrame = 0; // diam
 }
 
-    const birdImage=currentFrame===0?birdFrame1:birdFrame2;
-    ctx.drawImage(birdImage,100,birdY,birdSize,birdSize);
+    const currentSkinFrames = skinImages[selectedSkin];
+
+ctx.drawImage(
+  currentSkinFrames[currentFrame],
+  birdX,
+  birdY,
+  birdSize,
+  birdSize
+);
 
     // FLASH EFFECT
     if(flashAlpha>0){

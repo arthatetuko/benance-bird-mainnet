@@ -42,6 +42,27 @@ body {
   gap: 12px;
 }
 
+#skinOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+#skinBox {
+  background: #111;
+  padding: 30px;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+}
+
 /* ===== LEADERBOARD ===== */
 
 #leaderboardBox {

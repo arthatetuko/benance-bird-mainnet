@@ -8,6 +8,9 @@ import {
   getTreasuryInfo
 } from "./web3.js";
 
+import { skins, setSkin } from "./game.js";
+import { renderSkinList } from "./game.js";
+
 import {
   initGame,
   disconnectWallet,
@@ -28,6 +31,45 @@ const leaderboardBtn = document.getElementById("leaderboardBtn");
 const treasuryBtn = document.getElementById("treasuryBtn");
 const walletInfo = document.getElementById("walletInfo");
 const burnBtn = document.getElementById("burnBtn");
+const skinBtn = document.getElementById("skinBtn");
+const skinBox = document.getElementById("skinBox");
+const skinList = document.getElementById("skinList");
+const closeSkinBtn = document.getElementById("closeSkinBtn");
+
+if (closeSkinBtn) {
+  closeSkinBtn.onclick = () => {
+
+    document.getElementById("skinOverlay").style.display = "none";
+    document.getElementById("menuBox").style.display = "flex";
+
+  };
+}
+
+
+if (skinBtn) {
+  skinBtn.onclick = () => {
+
+    document.getElementById("menuBox").style.display = "none";
+    document.getElementById("skinOverlay").style.display = "flex";
+
+    renderSkinList(); // ini yang generate pilihan skin
+  };
+}
+
+// Generate skin buttons
+skins.forEach(skin => {
+  const img = document.createElement("img");
+  img.src = skin.frames[0];
+  img.style.width = "60px";
+  img.style.cursor = "pointer";
+
+  img.onclick = () => {
+    setSkin(skin.id);
+    skinBox.style.display = "none";
+  };
+
+  skinList.appendChild(img);
+});
 
 if (burnBtn) {
   burnBtn.onclick = async () => {
