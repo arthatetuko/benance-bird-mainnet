@@ -129,26 +129,26 @@ resizeCanvas();
 
 export const skins = [
   {
-    id: "terra",
-    name: "terra",
+    id: "Changpeng",
+    name: "Changpeng",
     frames: ["/terra1.png", "/terra2.png"]
   },
 
 {
-    id: "do",
-    name: "do",
+    id: "DO",
+    name: "DO",
     frames: ["/do1.png", "/do2.png"]
   },
 
   {
-    id: "grdx",
-    name: "grdx",
+    id: "Garuda",
+    name: "Garuda",
     frames: ["/grdx1.png", "/grdx2.png"]
   },
   
   {
-    id: "juris",
-    name: "juris",
+    id: "ll69",
+    name: "ll69",
     frames: ["/juris1.png", "/juris2.png"]
   }
 ];
@@ -186,27 +186,32 @@ export function renderSkinList() {
 
   container.innerHTML = "";
 
-  console.log("Selected skin:", selectedSkin);
-
   skins.forEach(skin => {
 
     const card = document.createElement("div");
-card.className = "skinCard";
+    card.className = "skinCard";
     card.style.margin = "10px";
     card.style.textAlign = "center";
 
     const preview = document.createElement("img");
     preview.src = skin.frames[0];
     preview.style.width = "80px";
-    preview.style.height = "80px";
     preview.style.imageRendering = "pixelated";
+
+    const name = document.createElement("div");
+    name.innerText = skin.name;
+    name.className = "skinName";
 
     const btn = document.createElement("button");
 
-    btn.innerText = (skin.id === selectedSkin) ? "Selected" : "Select";
-
-    btn.style.display = "block";
-    btn.style.marginTop = "5px";
+    if (skin.id === selectedSkin) {
+      btn.innerText = "Selected";
+      btn.className = "selectedBtn";
+      btn.disabled = true;
+    } else {
+      btn.innerText = "Select";
+      btn.className = "selectBtn";
+    }
 
     btn.onclick = () => {
       setSkin(skin.id);
@@ -214,12 +219,12 @@ card.className = "skinCard";
     };
 
     card.appendChild(preview);
+    card.appendChild(name);
     card.appendChild(btn);
 
     container.appendChild(card);
 
   });
-
 }
 
 // ===== LOAD PIPE IMAGE =====

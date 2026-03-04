@@ -92,6 +92,13 @@ body {
 
 /* ===== SKIN CARD ===== */
 
+.skinName{
+  color:white;
+  font-weight:bold;
+  margin-top:6px;
+  font-size:14px;
+}
+
 .skinCard{
   text-align:center;
 }
@@ -102,8 +109,27 @@ body {
 }
 
 .skinCard button{
-  margin-top:6px;
+  margin-top:8px;
   width:100%;
+  padding:8px;
+  border-radius:8px;
+  border:none;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* tombol select */
+
+.selectBtn{
+  background:#00c853;
+  color:white;
+}
+
+/* tombol selected */
+
+.selectedBtn{
+  background:#888;
+  color:white;
 }
 
 /* ===== FOOTER ===== */
