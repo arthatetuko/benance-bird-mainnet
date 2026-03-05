@@ -156,7 +156,20 @@ export const skins = [
     id: "Nueng",
     name: "Nueng",
     frames: ["/nueng1.png", "/nueng2.png"]
+  },
+
+{
+    id: "rocket",
+    name: "rocket",
+    frames: ["/rocket1.png", "/rocket2.png"]
+  },
+
+{
+    id: "3d",
+    name: "3d",
+    frames: ["/3d1.png", "/3d2.png"]
   }
+
 ];
 
 // Selected skin
