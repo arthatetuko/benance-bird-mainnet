@@ -164,6 +164,12 @@ export const skins = [
     frames: ["/rocket1.png", "/rocket2.png"]
   },
 
+  {
+    id: "LTK",
+    name: "LTK",
+    frames: ["/ltk1.png", "/ltk2.png"]
+  },
+
 {
     id: "3d",
     name: "3d",
